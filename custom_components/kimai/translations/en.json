@@ -22,7 +22,7 @@
         },
         "data_description": {
           "api_token": "Create a Bearer token in your Kimai user profile. Do not use your password.",
-          "base_url": "Base address without /api, for example https://time.example.com"
+          "base_url": "Base address without the /api path"
         },
         "description": "Connect Home Assistant to a Kimai 2.x account.",
         "title": "Connect Kimai"
