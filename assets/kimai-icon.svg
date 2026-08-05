@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Kimai for Home Assistant">
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="#4f46e5"/>
+  <path d="M76 68v120M79 130l61-62M80 127l66 61" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/>
+  <circle cx="174" cy="92" r="38" fill="#14b8a6" stroke="#fff" stroke-width="10"/>
+  <path d="M174 70v23l15 10" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+</svg>
