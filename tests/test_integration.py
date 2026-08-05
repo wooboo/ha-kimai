@@ -12,6 +12,7 @@ from custom_components.kimai.const import (
     CONF_DEFAULT_ACTIVITY_ID,
     CONF_DEFAULT_PROJECT_ID,
     DOMAIN,
+    SERVICE_GET_DAY_HOURS,
     SERVICE_LOG_TIME,
     SERVICE_SET_DAY_HOURS,
 )
@@ -177,3 +178,66 @@ async def test_set_day_hours_updates_only_selected_date(
     client.async_update_timesheet.assert_awaited_once()
     assert client.async_update_timesheet.await_args.args == (101,)
     assert client.async_update_timesheet.await_args.kwargs["description"] == "Keep me"
+
+
+async def test_get_day_hours_sums_only_matching_entries(
+    hass,
+    mock_overview_api,
+) -> None:
+    """The read action totals only the selected date, project and activity."""
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        title="Kimai — Piotr",
+        data={
+            CONF_BASE_URL: "https://time.example.com",
+            CONF_API_TOKEN: "secret-token",
+        },
+        options={
+            CONF_DEFAULT_PROJECT_ID: 22,
+            CONF_DEFAULT_ACTIVITY_ID: 33,
+        },
+    )
+    entry.add_to_hass(hass)
+    assert await hass.config_entries.async_setup(entry.entry_id)
+    await hass.async_block_till_done()
+
+    def timesheet(
+        timesheet_id: int,
+        begin: str,
+        hours: float,
+        project: int = 22,
+        activity: int = 33,
+    ) -> KimaiTimesheet:
+        return KimaiTimesheet.from_api(
+            {
+                "id": timesheet_id,
+                "begin": begin,
+                "duration": hours * 3600,
+                "project": project,
+                "activity": activity,
+            }
+        )
+
+    client = entry.runtime_data.client
+    client.async_get_timesheets = AsyncMock(
+        return_value=[
+            timesheet(101, "2026-08-05T09:00:00+02:00", 3.5),
+            timesheet(102, "2026-08-05T13:00:00+02:00", 4.0),
+            timesheet(103, "2026-08-05T08:00:00+02:00", 2.0, project=99),
+            timesheet(104, "2026-08-06T00:00:00+02:00", 1.0),
+        ]
+    )
+
+    response = await hass.services.async_call(
+        DOMAIN,
+        SERVICE_GET_DAY_HOURS,
+        {"date": date(2026, 8, 5)},
+        blocking=True,
+        return_response=True,
+    )
+
+    assert response == {
+        "duration_hours": 7.5,
+        "matching_entries": 2,
+        "timesheet_ids": [101, 102],
+    }

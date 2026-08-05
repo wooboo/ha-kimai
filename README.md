@@ -14,6 +14,7 @@ self-hosted or hosted installations reachable from Home Assistant.
 - Duration sensors for today, the current week and the current month.
 - A calendar entity for browsing entries and moving between days.
 - `kimai.log_time` to create a completed entry.
+- `kimai.get_day_hours` to read the matching total for a selected date.
 - `kimai.set_day_hours` to create or update the single matching entry for a
   project, activity and date.
 - Optional default project and activity configured from the integration's
@@ -96,9 +97,21 @@ data:
   duration_hours: 8.25
 ```
 
-Both actions accept optional `project_id`, `activity_id`, `billable` and
-`description` fields. `config_entry_id` is needed only when multiple Kimai
-accounts are configured.
+### `kimai.get_day_hours`
+
+Returns the total duration and matching entry IDs for a selected date. Project
+and activity use the integration defaults when omitted.
+
+```yaml
+action: kimai.get_day_hours
+data:
+  date: "2026-08-05"
+response_variable: kimai_day
+```
+
+All actions accept optional `project_id` and `activity_id`. The write actions
+also accept `billable` and `description`. `config_entry_id` is needed only when
+multiple Kimai accounts are configured.
 
 ## Dashboard example
 

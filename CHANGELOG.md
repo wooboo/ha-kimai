@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.2.0 — 2026-08-05
+
+- Add `kimai.get_day_hours` for reading the total of matching entries on a
+  selected date, suitable for editable Home Assistant dashboard workflows.
+
 ## 0.1.0 — 2026-08-05
 
 - Add UI setup with Bearer-token authentication and reauthentication.
@@ -10,4 +15,3 @@ All notable changes to this project are documented in this file.
 - Add project and activity defaults in integration options.
 - Add `kimai.log_time` and idempotent `kimai.set_day_hours` actions.
 - Add English and Polish translations and redacted diagnostics.
-

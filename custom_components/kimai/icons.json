@@ -10,6 +10,9 @@
     }
   },
   "services": {
+    "get_day_hours": {
+      "service": "mdi:clock-search-outline"
+    },
     "log_time": {
       "service": "mdi:timer-plus-outline"
     },

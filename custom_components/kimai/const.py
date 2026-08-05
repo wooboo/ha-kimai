@@ -16,6 +16,7 @@ DEFAULT_SCAN_INTERVAL: Final = timedelta(minutes=5)
 PLATFORMS: Final = (Platform.SENSOR, Platform.CALENDAR)
 
 SERVICE_LOG_TIME: Final = "log_time"
+SERVICE_GET_DAY_HOURS: Final = "get_day_hours"
 SERVICE_SET_DAY_HOURS: Final = "set_day_hours"
 
 ATTR_CONFIG_ENTRY_ID: Final = "config_entry_id"

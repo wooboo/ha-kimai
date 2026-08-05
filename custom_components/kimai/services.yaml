@@ -54,6 +54,36 @@ log_time:
       selector:
         boolean:
 
+get_day_hours:
+  name: Get day hours
+  description: Return the recorded duration for a project, activity and day.
+  fields:
+    config_entry_id:
+      name: Kimai account
+      description: Required only when more than one Kimai account is configured.
+      selector:
+        config_entry:
+          integration: kimai
+    project_id:
+      name: Project ID
+      description: Uses the default project from integration options when omitted.
+      selector:
+        number:
+          min: 1
+          mode: box
+    activity_id:
+      name: Activity ID
+      description: Uses the default activity from integration options when omitted.
+      selector:
+        number:
+          min: 1
+          mode: box
+    date:
+      name: Date
+      required: true
+      selector:
+        date:
+
 set_day_hours:
   name: Set day hours
   description: Create or update the single matching entry for a project, activity and day.
@@ -110,4 +140,3 @@ set_day_hours:
       default: true
       selector:
         boolean:
-
