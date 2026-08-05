@@ -1,0 +1,20 @@
+{
+  "entity": {
+    "calendar": {
+      "timesheets": { "default": "mdi:calendar-clock" }
+    },
+    "sensor": {
+      "month_hours": { "default": "mdi:calendar-month" },
+      "today_hours": { "default": "mdi:clock-check-outline" },
+      "week_hours": { "default": "mdi:calendar-week" }
+    }
+  },
+  "services": {
+    "log_time": {
+      "service": "mdi:timer-plus-outline"
+    },
+    "set_day_hours": {
+      "service": "mdi:clock-edit-outline"
+    }
+  }
+}

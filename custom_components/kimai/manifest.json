@@ -1,0 +1,13 @@
+{
+  "domain": "kimai",
+  "name": "Kimai",
+  "codeowners": ["@wooboo"],
+  "config_flow": true,
+  "documentation": "https://github.com/wooboo/ha-kimai",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/wooboo/ha-kimai/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
+

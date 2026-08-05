@@ -1,0 +1,95 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "This Kimai account is already configured.",
+      "reauth_successful": "Authentication was updated successfully."
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Kimai.",
+      "invalid_auth": "The API token is invalid or lacks API access.",
+      "unknown": "Unexpected response from Kimai."
+    },
+    "step": {
+      "reauth_confirm": {
+        "data": {
+          "api_token": "API token"
+        },
+        "description": "Enter a new API token for this Kimai account.",
+        "title": "Reconnect Kimai"
+      },
+      "user": {
+        "data": {
+          "api_token": "API token",
+          "base_url": "Kimai URL"
+        },
+        "data_description": {
+          "api_token": "Create a Bearer token in your Kimai user profile. Do not use your password.",
+          "base_url": "Base address without /api, for example https://time.example.com"
+        },
+        "description": "Connect Home Assistant to a Kimai 2.x account.",
+        "title": "Connect Kimai"
+      }
+    }
+  },
+  "entity": {
+    "calendar": {
+      "timesheets": {
+        "name": "Timesheets"
+      }
+    },
+    "sensor": {
+      "month_hours": {
+        "name": "This month"
+      },
+      "today_hours": {
+        "name": "Today"
+      },
+      "week_hours": {
+        "name": "This week"
+      }
+    }
+  },
+  "exceptions": {
+    "calendar_fetch_failed": {
+      "message": "Failed to retrieve timesheets from Kimai."
+    },
+    "defaults_required": {
+      "message": "Configure a default project and activity or provide their IDs in the action."
+    },
+    "entry_not_found": {
+      "message": "The selected Kimai account is not loaded."
+    },
+    "entry_required": {
+      "message": "Select a Kimai account because more than one account is configured."
+    },
+    "incompatible_activity": {
+      "message": "The selected activity does not belong to the selected project and is not global."
+    },
+    "multiple_matching_timesheets": {
+      "message": "Found {count} matching entries. Edit this day in Kimai to avoid changing the wrong entry."
+    },
+    "project_activity_not_found": {
+      "message": "The selected project or activity is no longer available in Kimai."
+    }
+  },
+  "options": {
+    "error": {
+      "cannot_connect": "Failed to connect to Kimai.",
+      "incompatible_activity": "The activity must be global or assigned to the selected project.",
+      "invalid_auth": "The API token is invalid or lacks API access.",
+      "no_activities": "No active activities are available in Kimai.",
+      "no_projects": "No active projects are available in Kimai.",
+      "unknown": "Unexpected response from Kimai."
+    },
+    "step": {
+      "init": {
+        "data": {
+          "default_activity_id": "Default activity",
+          "default_project_id": "Default project"
+        },
+        "description": "These defaults are used by actions when project and activity IDs are omitted.",
+        "title": "Kimai defaults"
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+log_time:
+  name: Log time
+  description: Create a completed timesheet entry in Kimai.
+  fields:
+    config_entry_id:
+      name: Kimai account
+      description: Required only when more than one Kimai account is configured.
+      selector:
+        config_entry:
+          integration: kimai
+    project_id:
+      name: Project ID
+      description: Uses the default project from integration options when omitted.
+      selector:
+        number:
+          min: 1
+          mode: box
+    activity_id:
+      name: Activity ID
+      description: Uses the default activity from integration options when omitted.
+      selector:
+        number:
+          min: 1
+          mode: box
+    date:
+      name: Date
+      required: true
+      selector:
+        date:
+    start_time:
+      name: Start time
+      default: "09:00:00"
+      selector:
+        time:
+    duration_hours:
+      name: Duration
+      description: Decimal hours to record.
+      required: true
+      selector:
+        number:
+          min: 0.0166667
+          max: 24
+          step: 0.25
+          unit_of_measurement: h
+          mode: box
+    description:
+      name: Description
+      selector:
+        text:
+          multiline: true
+    billable:
+      name: Billable
+      default: true
+      selector:
+        boolean:
+
+set_day_hours:
+  name: Set day hours
+  description: Create or update the single matching entry for a project, activity and day.
+  fields:
+    config_entry_id:
+      name: Kimai account
+      description: Required only when more than one Kimai account is configured.
+      selector:
+        config_entry:
+          integration: kimai
+    project_id:
+      name: Project ID
+      description: Uses the default project from integration options when omitted.
+      selector:
+        number:
+          min: 1
+          mode: box
+    activity_id:
+      name: Activity ID
+      description: Uses the default activity from integration options when omitted.
+      selector:
+        number:
+          min: 1
+          mode: box
+    date:
+      name: Date
+      required: true
+      selector:
+        date:
+    start_time:
+      name: Start time
+      default: "09:00:00"
+      selector:
+        time:
+    duration_hours:
+      name: Duration
+      description: The target duration in decimal hours.
+      required: true
+      selector:
+        number:
+          min: 0.0166667
+          max: 24
+          step: 0.25
+          unit_of_measurement: h
+          mode: box
+    description:
+      name: Description
+      description: Existing text is kept when this field is empty during an update.
+      selector:
+        text:
+          multiline: true
+    billable:
+      name: Billable
+      default: true
+      selector:
+        boolean:
+

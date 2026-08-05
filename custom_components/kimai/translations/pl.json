@@ -1,0 +1,69 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "To konto Kimai jest już skonfigurowane.",
+      "reauth_successful": "Uwierzytelnianie zostało zaktualizowane."
+    },
+    "error": {
+      "cannot_connect": "Nie udało się połączyć z Kimai.",
+      "invalid_auth": "Token API jest nieprawidłowy albo nie ma dostępu do API.",
+      "unknown": "Kimai zwróciło nieoczekiwaną odpowiedź."
+    },
+    "step": {
+      "reauth_confirm": {
+        "data": { "api_token": "Token API" },
+        "description": "Wprowadź nowy token API dla tego konta Kimai.",
+        "title": "Połącz Kimai ponownie"
+      },
+      "user": {
+        "data": {
+          "api_token": "Token API",
+          "base_url": "Adres Kimai"
+        },
+        "data_description": {
+          "api_token": "Utwórz token Bearer w profilu użytkownika Kimai. Nie podawaj hasła.",
+          "base_url": "Adres bazowy bez /api, na przykład https://time.example.com"
+        },
+        "description": "Połącz Home Assistant z kontem Kimai 2.x.",
+        "title": "Połącz Kimai"
+      }
+    }
+  },
+  "entity": {
+    "calendar": { "timesheets": { "name": "Ewidencja czasu" } },
+    "sensor": {
+      "month_hours": { "name": "Ten miesiąc" },
+      "today_hours": { "name": "Dzisiaj" },
+      "week_hours": { "name": "Ten tydzień" }
+    }
+  },
+  "exceptions": {
+    "calendar_fetch_failed": { "message": "Nie udało się pobrać wpisów z Kimai." },
+    "defaults_required": { "message": "Skonfiguruj domyślny projekt i aktywność albo podaj ich identyfikatory w akcji." },
+    "entry_not_found": { "message": "Wybrane konto Kimai nie jest załadowane." },
+    "entry_required": { "message": "Wybierz konto Kimai, ponieważ skonfigurowano więcej niż jedno konto." },
+    "incompatible_activity": { "message": "Wybrana aktywność nie należy do wybranego projektu i nie jest globalna." },
+    "multiple_matching_timesheets": { "message": "Znaleziono {count} pasujących wpisów. Edytuj ten dzień w Kimai, aby nie zmienić niewłaściwego wpisu." },
+    "project_activity_not_found": { "message": "Wybrany projekt lub aktywność nie jest już dostępna w Kimai." }
+  },
+  "options": {
+    "error": {
+      "cannot_connect": "Nie udało się połączyć z Kimai.",
+      "incompatible_activity": "Aktywność musi być globalna albo przypisana do wybranego projektu.",
+      "invalid_auth": "Token API jest nieprawidłowy albo nie ma dostępu do API.",
+      "no_activities": "W Kimai nie ma dostępnych aktywnych aktywności.",
+      "no_projects": "W Kimai nie ma dostępnych aktywnych projektów.",
+      "unknown": "Kimai zwróciło nieoczekiwaną odpowiedź."
+    },
+    "step": {
+      "init": {
+        "data": {
+          "default_activity_id": "Domyślna aktywność",
+          "default_project_id": "Domyślny projekt"
+        },
+        "description": "Te wartości są używane przez akcje, gdy nie podano identyfikatorów projektu i aktywności.",
+        "title": "Domyślne wartości Kimai"
+      }
+    }
+  }
+}
